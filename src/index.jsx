@@ -1,4 +1,3 @@
-import App, { s } from '@/components/App';
+import Notification from '@/components/Notification';
 
-console.log(s);
-export default App;
+export default Notification;

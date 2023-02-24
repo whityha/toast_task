@@ -4,6 +4,7 @@ import resolve from '@rollup/plugin-node-resolve';
 import { terser } from 'rollup-plugin-terser';
 import commonjs from '@rollup/plugin-commonjs';
 import alias from '@rollup/plugin-alias';
+import svg from 'rollup-plugin-svg';
 import * as path from 'path';
 
 export default [
@@ -24,6 +25,7 @@ export default [
             alias({
                 entries: [{ find: '@', replacement: path.resolve('src') }],
             }),
+            svg(),
             commonjs(),
             babel({
                 exclude: 'node_modules/**',
