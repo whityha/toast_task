@@ -31,7 +31,7 @@ export default [
                 exclude: 'node_modules/**',
                 presets: ['@babel/preset-react'],
             }),
-            external(),
+            external(['styled-components']),
             resolve({
                 extensions: ['.mjs', '.js', '.json', '.node', '.jsx'],
             }),
