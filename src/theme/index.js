@@ -1,4 +1,5 @@
 import { COLORS, ICONS } from './config';
+import { opacity, opacityClose, bubble, bubbleClose } from './animations';
 
 const { white, red, green, purple, blue } = COLORS;
 const { error, success, info } = ICONS;
@@ -29,21 +30,32 @@ const Theme = {
         icon: success,
     },
     position: {
-        'left-top': {
+        'top-left': {
             left: 20,
             top: 20,
         },
-        'right-top': {
+        'top-right': {
             right: 20,
             top: 20,
         },
-        'left-bottom': {
+        'bottom-left': {
             left: 20,
             bottom: 20,
         },
-        'right-bottom': {
+        'bottom-right': {
             right: 20,
             bottom: 20,
+        },
+    },
+    animationDuration: 500,
+    animation: {
+        opacity: {
+            open: opacity,
+            close: opacityClose,
+        },
+        bubble: {
+            open: bubble,
+            close: bubbleClose,
         },
     },
 };

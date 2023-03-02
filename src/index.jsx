@@ -1,3 +1,5 @@
-import Notification from '@/components/Notification';
+import Container from '@/components/Container';
+import toast from '@/utils/controller';
 
-export default Notification;
+export default Container;
+export { toast };
