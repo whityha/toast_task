@@ -3,24 +3,27 @@ import ReactDOM from 'react-dom';
 import Container from './styled';
 import useContainer from '../../hooks/useContainer';
 import Toast from '../Toast';
+import CornerContainer from '../CornerContainer';
 
 const ContainerToast = () => {
-    const { toastList, deleteToast } = useContainer();
+    const { deleteToast, toastPositionContainers } = useContainer();
     return ReactDOM.createPortal(
         <Container>
-            {toastList.map((toastParams) => {
-                if (toastParams) {
-                    const { id } = toastParams;
-                    return (
+            {toastPositionContainers.map(([position, toastsParams]) => (
+                <CornerContainer
+                    key={`container-${position}`}
+                    position={position}
+                >
+                    {toastsParams.map(({ id, ...toastParams }) => (
                         <Toast
                             key={id}
+                            id={id}
                             deleteToast={deleteToast}
                             {...toastParams}
                         />
-                    );
-                }
-                return null;
-            })}
+                    ))}
+                </CornerContainer>
+            ))}
         </Container>,
         document.body
     );

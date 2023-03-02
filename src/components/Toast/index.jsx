@@ -27,22 +27,10 @@ Toast.propTypes = {
     title: PropTypes.string,
     description: PropTypes.string,
     type: PropTypes.oneOf(['default', 'error', 'success', 'info']),
-    position: PropTypes.shape({
-        left: PropTypes.number,
-        right: PropTypes.number,
-        bottom: PropTypes.number,
-        top: PropTypes.number,
-    }),
 
     backgroundColor: PropTypes.string,
     titleColor: PropTypes.string,
     descriptionColor: PropTypes.string,
-    positionOptions: PropTypes.shape({
-        left: PropTypes.number,
-        right: PropTypes.number,
-        top: PropTypes.number,
-        bottom: PropTypes.number,
-    }),
 };
 
 export default Toast;

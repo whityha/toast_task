@@ -8,28 +8,7 @@ const generalStyle = css`
 
 export const Wrapper = styled.div`
     ${generalStyle};
-    position: fixed;
-    ${({ position: { left } }) =>
-        left &&
-        css`
-            left: ${left}px;
-        `};
-    ${({ position: { top } }) =>
-        top &&
-        css`
-            top: ${top}px;
-        `};
-    ${({ position: { right } }) =>
-        right &&
-        css`
-            right: ${right}px;
-        `};
-    ${({ position: { bottom } }) =>
-        bottom &&
-        css`
-            bottom: ${bottom}px;
-        `};
-
+    position: relative;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
@@ -40,6 +19,13 @@ export const Wrapper = styled.div`
     background: ${({ icon }) =>
         `url("${icon}") no-repeat left 10px center / 35px`};
     background-color: ${({ backgroundColor }) => backgroundColor};
+    ${({ translate }) =>
+        translate
+            ? css`
+                  left: ${translate.translateX};
+                  top: ${translate.translateY};
+              `
+            : ''};
     ${({ isClosing, animationDuration, animation: { open, close } }) =>
         isClosing
             ? css`
@@ -47,7 +33,7 @@ export const Wrapper = styled.div`
               `
             : css`
                   animation: ${open} ${animationDuration}ms ease;
-              `}
+              `};
 `;
 
 export const Title = styled.p`

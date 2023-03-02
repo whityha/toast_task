@@ -51,9 +51,18 @@ const Template = ({
                     type,
                     duration,
                     animation,
+                    translate: {
+                        translateX: '100px',
+                        translateY: '0px',
+                    },
                 });
-                toast.setSettingsToType('error', {
-                    titleColor: '#f1f999',
+                toast.addToast({
+                    position,
+                    title,
+                    description,
+                    type,
+                    duration,
+                    animation,
                 });
             }}
         >

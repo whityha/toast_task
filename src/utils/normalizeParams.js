@@ -9,8 +9,6 @@ export default (customParams) => {
         backgroundColor,
         titleColor,
         descriptionColor,
-        position,
-        positionOptions,
         animation,
         ...props
     } = customParams;
@@ -23,7 +21,6 @@ export default (customParams) => {
             description.length > MAX_DESCRIPTION_LENGTH
                 ? `${description.slice(0, MAX_DESCRIPTION_LENGTH)}...`
                 : description,
-        position: positionOptions || Theme.position[position],
 
         backgroundColor: backgroundColor || Theme[type].backgroundColor,
         titleColor: titleColor || Theme[type].titleColor,
