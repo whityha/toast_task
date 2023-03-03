@@ -1,5 +1,5 @@
+import { bubble, bubbleClose, opacity, opacityClose } from './animations';
 import { COLORS, ICONS } from './config';
-import { opacity, opacityClose, bubble, bubbleClose } from './animations';
 
 const { white, red, green, purple, blue } = COLORS;
 const { error, success, info } = ICONS;

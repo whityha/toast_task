@@ -1,6 +1,7 @@
-import { useState, useRef, useEffect, useImperativeHandle } from 'react';
-import toastInstance from '../utils/controller';
+import { useEffect, useImperativeHandle, useRef, useState } from 'react';
+
 import { MAX_TOAST_TOGETHER } from '../constants';
+import toastInstance from '../utils/controller';
 import makePositionContainers from '../utils/makePositionContainers';
 
 const useContainer = () => {

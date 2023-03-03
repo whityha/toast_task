@@ -1,5 +1,5 @@
-import Theme from '../theme';
 import { MAX_DESCRIPTION_LENGTH, MAX_TITLE_LENGTH } from '../constants';
+import Theme from '../theme';
 
 export default (customParams) => {
     const {

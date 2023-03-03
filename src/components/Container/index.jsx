@@ -1,10 +1,12 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+
 import useContainer from '@/hooks/useContainer';
 import Theme from '@/theme';
-import { Container, CornerContainer } from './styled';
-import Toast from '../Toast';
+
 import ErrorBoundary from '../ErrorBoundary';
+import Toast from '../Toast';
+import { Container, CornerContainer } from './styled';
 
 const Corner = ({ position, children }) => (
     <CornerContainer position={Theme.position[position]}>

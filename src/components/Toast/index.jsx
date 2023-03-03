@@ -1,7 +1,9 @@
-import React from 'react';
 import PropTypes from 'prop-types';
+import React from 'react';
+
 import useToast from '@/hooks/useToast';
-import { Title, Wrapper, Description, CloseButton } from './styled';
+
+import { CloseButton, Description, Title, Wrapper } from './styled';
 
 const Toast = (props) => {
     const { title, description, duration, deleteToast, id, animationDuration } =

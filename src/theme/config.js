@@ -1,7 +1,7 @@
 import error from '../assets/error.svg';
-import warning from '../assets/warning.svg';
 import info from '../assets/info.svg';
 import success from '../assets/success.svg';
+import warning from '../assets/warning.svg';
 
 const COLORS = {
     white: '#ffffff',
@@ -19,4 +19,4 @@ const ICONS = {
     success,
 };
 
-export { ICONS, COLORS };
+export { COLORS, ICONS };

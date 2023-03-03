@@ -11,7 +11,7 @@
         "ecmaVersion": "latest",
         "sourceType": "module"
     },
-    "plugins": ["react", "prettier"],
+    "plugins": ["react", "simple-import-sort", "prettier"],
     "rules": {
         "react/function-component-definition": [
             2,
@@ -23,8 +23,8 @@
         "prettier/prettier": "error",
         "react/prop-types": "off",
         "no-param-reassign": "off",
-        // "simple-import-sort/imports": "error",
-        // "simple-import-sort/exports": "error",
+        "simple-import-sort/imports": "error",
+        "simple-import-sort/exports": "error",
         "react/prefer-stateless-function": "off",
         "default-param-last": "off",
         "react/require-default-props": "off",
@@ -39,5 +39,10 @@
                 "extensions": [".js", ".jsx", ".json"]
             }
         }
-    }
+    },
+    "overrides": [
+        {
+          "files": ["*.jsx", "*.js"]
+        }
+      ]
 }

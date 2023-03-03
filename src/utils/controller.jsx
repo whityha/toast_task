@@ -1,7 +1,7 @@
 /* eslint-disable class-methods-use-this */
-import normalizeParams from './normalizeParams';
-import filterParams from './filter';
 import Theme from '../theme';
+import filterParams from './filter';
+import normalizeParams from './normalizeParams';
 
 class ToastController {
     static defaultParams = {
