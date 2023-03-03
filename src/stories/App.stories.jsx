@@ -28,6 +28,9 @@ export default {
             control: { type: 'radio' },
             options: ['bubble', 'opacity'],
         },
+        translate: {
+            control: { type: 'object' },
+        },
     },
 };
 
@@ -38,6 +41,7 @@ const Template = ({
     title,
     description,
     duration,
+    translate,
 }) => (
     <>
         <button
@@ -51,18 +55,7 @@ const Template = ({
                     type,
                     duration,
                     animation,
-                    translate: {
-                        translateX: '100px',
-                        translateY: '0px',
-                    },
-                });
-                toast.addToast({
-                    position,
-                    title,
-                    description,
-                    type,
-                    duration,
-                    animation,
+                    translate,
                 });
             }}
         >
