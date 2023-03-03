@@ -4,7 +4,6 @@ import resolve from '@rollup/plugin-node-resolve';
 import { terser } from 'rollup-plugin-terser';
 import commonjs from '@rollup/plugin-commonjs';
 import alias from '@rollup/plugin-alias';
-// import svg from 'rollup-plugin-svg';
 import image from '@rollup/plugin-image';
 import * as path from 'path';
 
@@ -30,7 +29,7 @@ export default [
             commonjs(),
             babel({
                 exclude: 'node_modules/**',
-                presets: ['@babel/preset-react'],
+                presets: ['@babel/preset-react', '@babel/env'],
             }),
             external(['styled-components']),
             resolve({
