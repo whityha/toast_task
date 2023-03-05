@@ -1,9 +1,9 @@
 {
     "name": "@whityha/toast",
     "version": "1.0.0",
-    "main": "index.js",
+    "main": "dist/index.en.js",
     "repository": "https://github.com/whityha/toast_task.git",
-    "author": "Pavel",
+    "author": "Pavel Khapaliuk",
     "license": "MIT",
     "devDependencies": {
         "@babel/core": "^7.21.0",
@@ -79,6 +79,7 @@
     "scripts": {
         "eslint:fix": "eslint --fix .",
         "prettier:fix": "npx prettier --write .",
+        "build": "npx rollup -c",
         "storybook": "start-storybook -p 6006",
         "build-storybook": "build-storybook"
     }
