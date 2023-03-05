@@ -1,2 +1,3 @@
-*
-!dist/index.es.js
+README.md
+dist/index.js
+node_modules
