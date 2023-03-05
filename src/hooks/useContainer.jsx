@@ -1,49 +1,43 @@
 import { useEffect, useImperativeHandle, useRef, useState } from 'react';
+import uuid from 'uuid4';
 
 import { MAX_TOAST_TOGETHER } from '../constants';
 import toastInstance from '../utils/controller';
 import makePositionContainers from '../utils/makePositionContainers';
 
 const useContainer = () => {
-    const [toastList, setToastList] = useState([]);
+    const [toasts, setToasts] = useState([]);
     const ref = useRef(null);
 
     useImperativeHandle(ref, () => ({
-        getToastList: () => toastList,
         addToastInList: (toastParams) =>
-            setToastList((toasts) => {
-                const toastLength = toasts.filter(Boolean).length;
-                return toastLength < MAX_TOAST_TOGETHER
+            setToasts((prevToasts) =>
+                prevToasts.length < MAX_TOAST_TOGETHER
                     ? [
-                          ...toasts,
+                          ...prevToasts,
                           {
                               ...toastParams,
-                              id: toasts.length + 1,
+                              id: uuid(),
                           },
                       ]
-                    : toasts;
-            }),
+                    : prevToasts
+            ),
     }));
 
     const deleteToast = (id) => {
-        setToastList((toasts) => {
-            const a = [...toasts];
-            delete a[id - 1];
-            return [...a];
-        });
+        setToasts((prevToasts) =>
+            [...prevToasts].filter((toast) => toast.id !== id)
+        );
     };
 
     useEffect(() => {
         toastInstance.toastContainer = ref.current;
-    }, [toastList]);
+    }, [toasts]);
 
-    const toastPositionContainers = makePositionContainers([...toastList]);
+    const toastPositionContainers = makePositionContainers([...toasts]);
 
     return {
         toastPositionContainers,
-        toastList,
-        ref,
-        setToastList,
         deleteToast,
     };
 };

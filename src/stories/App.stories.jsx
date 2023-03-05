@@ -16,7 +16,7 @@ export default {
         },
         type: {
             control: { type: 'radio' },
-            options: ['error', 'default', 'info', 'success'],
+            options: ['error', 'warning', 'info', 'success'],
         },
         duration: {
             control: { type: 'number' },
@@ -29,20 +29,20 @@ export default {
             control: { type: 'radio' },
             options: ['bubble', 'opacity'],
         },
-        translate: {
+        transform: {
             control: { type: 'object' },
         },
     },
 };
 
 const Template = ({
-    position,
     type,
     animation,
     title,
     description,
     duration,
-    translate,
+    transform,
+    position,
 }) => (
     <>
         <button
@@ -56,7 +56,7 @@ const Template = ({
                     type,
                     duration,
                     animation,
-                    translate,
+                    transform,
                 });
             }}
         >
@@ -70,7 +70,6 @@ export const EXAMPLE_DEFAULT = Template.bind({});
 
 EXAMPLE_DEFAULT.args = {
     type: 'default',
-    duration: 2000,
 };
 
 export const EXAMPLE_ERROR = Template.bind({});

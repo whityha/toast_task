@@ -38,15 +38,14 @@ export const Wrapper = styled.div`
 
 export const Title = styled.p`
     ${generalStyle};
-    font-size: ${({ titleColor }) => titleColor}px;
-    color: ${({ titleColor }) => titleColor};
+    color: ${({ color }) => color};
     font-size: 20px;
 `;
 
 export const Description = styled.p`
     ${generalStyle};
     font-size: 14px;
-    color: ${({ descriptionColor }) => descriptionColor};
+    color: ${({ color }) => color};
     word-wrap: break-word;
 `;
 

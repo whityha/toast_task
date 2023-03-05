@@ -5,10 +5,20 @@ import useToast from '@/hooks/useToast';
 
 import { CloseButton, Description, Title, Wrapper } from './styled';
 
-const Toast = (props) => {
-    const { title, description, duration, deleteToast, id, animationDuration } =
-        props;
-
+const Toast = ({
+    titleColor,
+    title,
+    description,
+    descriptionColor,
+    backgroundColor,
+    transform,
+    animation,
+    icon,
+    duration,
+    deleteToast,
+    id,
+    animationDuration,
+}) => {
     const { isClosing, animatedToastDelete } = useToast({
         duration,
         deleteToast,
@@ -17,10 +27,17 @@ const Toast = (props) => {
     });
 
     return (
-        <Wrapper isClosing={isClosing} {...props}>
+        <Wrapper
+            isClosing={isClosing}
+            icon={icon}
+            backgroundColor={backgroundColor}
+            transform={transform}
+            animation={animation}
+            animationDuration={animationDuration}
+        >
             <CloseButton disabled={isClosing} onClick={animatedToastDelete} />
-            <Title {...props}>{title}</Title>
-            <Description {...props}>{description}</Description>
+            <Title color={titleColor}>{title}</Title>
+            <Description color={descriptionColor}>{description}</Description>
         </Wrapper>
     );
 };
@@ -28,11 +45,24 @@ const Toast = (props) => {
 Toast.propTypes = {
     title: PropTypes.string,
     description: PropTypes.string,
-    type: PropTypes.oneOf(['default', 'error', 'success', 'info']),
 
     backgroundColor: PropTypes.string,
     titleColor: PropTypes.string,
     descriptionColor: PropTypes.string,
+    icon: PropTypes.string,
+
+    transform: PropTypes.shape({
+        translateX: PropTypes.string,
+        translateY: PropTypes.string,
+    }),
+    deleteToast: PropTypes.func,
+    id: PropTypes.string,
+    duration: PropTypes.number,
+    animationDuration: PropTypes.number,
+    animation: PropTypes.shape({
+        open: PropTypes.shape({}),
+        close: PropTypes.shape({}),
+    }),
 };
 
 export default Toast;

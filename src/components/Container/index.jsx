@@ -1,3 +1,4 @@
+import PropTypes from 'prop-types';
 import React from 'react';
 import ReactDOM from 'react-dom';
 
@@ -6,12 +7,12 @@ import Theme from '@/theme';
 
 import ErrorBoundary from '../ErrorBoundary';
 import Toast from '../Toast';
-import { Container, CornerContainer } from './styled';
+import { Container, PositionContainer } from './styled';
 
-const Corner = ({ position, children }) => (
-    <CornerContainer position={Theme.position[position]}>
+const Position = ({ position, children }) => (
+    <PositionContainer position={Theme.position[position]}>
         {children}
-    </CornerContainer>
+    </PositionContainer>
 );
 
 const ContainerToast = () => {
@@ -20,7 +21,7 @@ const ContainerToast = () => {
         <ErrorBoundary>
             <Container>
                 {toastPositionContainers.map(([position, toastsParams]) => (
-                    <Corner key={`container-${position}`} position={position}>
+                    <Position key={`container-${position}`} position={position}>
                         {toastsParams.map(({ id, ...toastParams }) => (
                             <Toast
                                 key={id}
@@ -29,12 +30,17 @@ const ContainerToast = () => {
                                 {...toastParams}
                             />
                         ))}
-                    </Corner>
+                    </Position>
                 ))}
             </Container>
         </ErrorBoundary>,
         document.body
     );
+};
+
+Position.propTypes = {
+    position: PropTypes.string,
+    children: PropTypes.node,
 };
 
 export default ContainerToast;

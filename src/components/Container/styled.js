@@ -4,7 +4,7 @@ export const Container = styled.div`
     display: block;
 `;
 
-export const CornerContainer = styled.div`
+export const PositionContainer = styled.div`
     position: absolute;
     display: flex;
     flex-direction: column;

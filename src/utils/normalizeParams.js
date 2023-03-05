@@ -27,7 +27,6 @@ export default (customParams) => {
         descriptionColor: descriptionColor || Theme[type].descriptionColor,
 
         icon: Theme[type].icon,
-        animationDuration: Theme.animationDuration,
         animation: Theme.animation[animation],
 
         ...props,

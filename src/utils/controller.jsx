@@ -1,47 +1,37 @@
 /* eslint-disable class-methods-use-this */
+import { ANIMATION, POSITION, TYPE } from '../constants';
 import Theme from '../theme';
-import filterParams from './filter';
 import normalizeParams from './normalizeParams';
+import validateParams from './validateFilter';
 
-class ToastController {
+class ToastSingleton {
     static defaultParams = {
-        type: 'success',
+        type: TYPE.SUCCESS,
         title: 'Default title',
         description: 'Default description',
-        position: 'bottom-right',
-        duration: 2000,
-        animation: 'opacity',
+        position: POSITION.BOTTOM_RIGHT,
+        duration: 1000,
+        animationDuration: 500,
+        animation: ANIMATION.BUBBLE,
     };
 
     static getInstance() {
-        if (!ToastController.instance)
-            ToastController.instance = new ToastController();
-        return ToastController.instance;
+        if (!ToastSingleton.instance)
+            ToastSingleton.instance = new ToastSingleton();
+        return ToastSingleton.instance;
     }
 
-    TYPE = {
-        ERROR: 'error',
-        SUCCESS: 'success',
-        INFO: 'info',
-    };
+    TYPE = TYPE;
 
-    POSITION = {
-        TOP_LEFT: 'top-left',
-        TOP_RIGHT: 'top-right',
-        BOTTOM_LEFT: 'bottom-left',
-        BOTTOM_RIGHT: 'bottom-right',
-    };
+    POSITION = POSITION;
 
-    ANIMATION = {
-        OPACITY: 'opacity',
-        BUBBLE: 'bubble',
-    };
+    ANIMATION = ANIMATION;
 
-    addToast(customParams = ToastController.defaultParams) {
-        const f = filterParams(customParams);
+    addToast(customParams = ToastSingleton.defaultParams) {
+        const validParams = validateParams(customParams);
         const toastParameters = normalizeParams({
-            ...ToastController.defaultParams,
-            ...f,
+            ...ToastSingleton.defaultParams,
+            ...validParams,
         });
         this.toastContainer.addToastInList(toastParameters);
     }
@@ -49,10 +39,10 @@ class ToastController {
     getSettingsByType = (type) => ({ ...Theme[type] });
 
     setSettingsToType = (type, customParams) => {
-        const params = filterParams(customParams);
+        const params = validateParams(customParams);
         Theme[type] = { ...Theme[type], ...params };
         return { ...Theme[type] };
     };
 }
 
-export default ToastController.getInstance();
+export default ToastSingleton.getInstance();

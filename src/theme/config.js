@@ -4,6 +4,7 @@ import success from '../assets/success.svg';
 import warning from '../assets/warning.svg';
 
 const COLORS = {
+    yellow: '#d3ac2d',
     white: '#ffffff',
     black: '#000000',
     red: '#d31313',
