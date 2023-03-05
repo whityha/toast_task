@@ -19,11 +19,11 @@ export const Wrapper = styled.div`
     background: ${({ icon }) =>
         `url("${icon}") no-repeat left 10px center / 35px`};
     background-color: ${({ backgroundColor }) => backgroundColor};
-    ${({ translate }) =>
-        translate
+    ${({ transform }) =>
+        transform
             ? css`
-                  left: ${translate.translateX};
-                  top: ${translate.translateY};
+                  left: ${transform.translateX};
+                  top: ${transform.translateY};
               `
             : ''};
     ${({ isClosing, animationDuration, animation: { open, close } }) =>
