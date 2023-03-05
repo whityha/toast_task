@@ -11,7 +11,7 @@ const Toast = ({
     description,
     descriptionColor,
     backgroundColor,
-    transform,
+    translate,
     animation,
     icon,
     duration,
@@ -31,7 +31,7 @@ const Toast = ({
             isClosing={isClosing}
             icon={icon}
             backgroundColor={backgroundColor}
-            transform={transform}
+            translate={translate}
             animation={animation}
             animationDuration={animationDuration}
         >
@@ -51,7 +51,7 @@ Toast.propTypes = {
     descriptionColor: PropTypes.string,
     icon: PropTypes.string,
 
-    transform: PropTypes.shape({
+    translate: PropTypes.shape({
         translateX: PropTypes.string,
         translateY: PropTypes.string,
     }),

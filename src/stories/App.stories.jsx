@@ -29,7 +29,7 @@ export default {
             control: { type: 'radio' },
             options: ['bubble', 'opacity'],
         },
-        transform: {
+        translate: {
             control: { type: 'object' },
         },
     },
@@ -41,7 +41,7 @@ const Template = ({
     title,
     description,
     duration,
-    transform,
+    translate,
     position,
 }) => (
     <>
@@ -56,7 +56,7 @@ const Template = ({
                     type,
                     duration,
                     animation,
-                    transform,
+                    translate,
                 });
             }}
         >
