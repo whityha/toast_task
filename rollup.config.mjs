@@ -1,11 +1,11 @@
-import { babel } from '@rollup/plugin-babel';
-import external from 'rollup-plugin-peer-deps-external';
-import resolve from '@rollup/plugin-node-resolve';
-import { terser } from 'rollup-plugin-terser';
-import commonjs from '@rollup/plugin-commonjs';
 import alias from '@rollup/plugin-alias';
+import { babel } from '@rollup/plugin-babel';
+import commonjs from '@rollup/plugin-commonjs';
 import image from '@rollup/plugin-image';
+import resolve from '@rollup/plugin-node-resolve';
 import * as path from 'path';
+import external from 'rollup-plugin-peer-deps-external';
+import { terser } from 'rollup-plugin-terser';
 
 export default [
     {
