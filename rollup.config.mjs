@@ -12,10 +12,6 @@ export default [
         input: './src/index.jsx',
         output: [
             {
-                file: 'dist/index.js',
-                format: 'cjs',
-            },
-            {
                 file: 'dist/index.es.js',
                 format: 'es',
                 exports: 'named',
@@ -29,7 +25,7 @@ export default [
             commonjs(),
             babel({
                 exclude: 'node_modules/**',
-                presets: ['@babel/preset-react', '@babel/env'],
+                presets: ['@babel/preset-react'],
             }),
             external(['styled-components']),
             resolve({
