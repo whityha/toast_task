@@ -1,6 +1,6 @@
 {
     "name": "@whityha/toast",
-    "version": "1.0.4",
+    "version": "1.0.5",
     "main": "dist/index.en.js",
     "repository": "https://github.com/whityha/toast_task.git",
     "author": "Pavel Khapaliuk",
