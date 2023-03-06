@@ -43,6 +43,10 @@ class ToastSingleton {
         Theme[type] = { ...Theme[type], ...params };
         return { ...Theme[type] };
     };
+
+    resetSettings = () => {
+        Theme.resetSettings();
+    };
 }
 
 export default ToastSingleton.getInstance();

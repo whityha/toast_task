@@ -2,9 +2,8 @@ import PropTypes from 'prop-types';
 import React from 'react';
 import ReactDOM from 'react-dom';
 
-import useContainer from '@/hooks/useContainer';
-import Theme from '@/theme';
-
+import useContainer from '../../hooks/useContainer';
+import Theme from '../../theme';
 import ErrorBoundary from '../ErrorBoundary';
 import Toast from '../Toast';
 import { Container, PositionContainer } from './styled';

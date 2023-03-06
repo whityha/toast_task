@@ -65,6 +65,51 @@ const Theme = {
             close: bubbleClose,
         },
     },
+
+    resetSettings(type = false) {
+        switch (type) {
+            case TYPE.ERROR:
+                Theme[TYPE.ERROR] = {
+                    titleColor: white,
+                    descriptionColor: white,
+                    backgroundColor: red,
+                    icon: error,
+                };
+                break;
+            case TYPE.WARNING:
+                Theme[TYPE.WARNING] = {
+                    titleColor: white,
+                    descriptionColor: white,
+                    backgroundColor: yellow,
+                    icon: warning,
+                };
+                break;
+            case TYPE.INFO:
+                Theme[TYPE.INFO] = {
+                    titleColor: white,
+                    descriptionColor: white,
+                    backgroundColor: purple,
+                    icon: info,
+                };
+                break;
+            case TYPE.SUCCESS:
+                Theme[TYPE.SUCCESS] = {
+                    titleColor: white,
+                    descriptionColor: white,
+                    backgroundColor: green,
+                    icon: success,
+                };
+                break;
+            default: {
+                Theme[TYPE.DEFAULT] = {
+                    titleColor: white,
+                    descriptionColor: white,
+                    backgroundColor: blue,
+                    icon: info,
+                };
+            }
+        }
+    },
 };
 
 export default Theme;
