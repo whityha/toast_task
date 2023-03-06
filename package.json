@@ -40,9 +40,9 @@
         "rollup-plugin-peer-deps-external": "^2.2.4",
         "rollup-plugin-terser": "^7.0.2",
         "storybook": "^6.5.16",
+        "styled-components": "^5.3.6",
         "uuid4": "^2.0.3",
-        "uuidv4": "^6.2.13",
-        "styled-components": "^5.3.6"
+        "uuidv4": "^6.2.13"
     },
     "peerDependencies": {
         "react": "^18.2.0",
@@ -58,6 +58,7 @@
         "babel-loader": "^8.3.0",
         "babel-preset-es2015-rollup": "^3.0.0",
         "craco-alias": "^3.0.1",
+        "html-webpack-plugin": "^5.5.0",
         "prop-types": "^15.8.1",
         "react": "^18.2.0",
         "react-dom": "^18.2.0",
