@@ -47,6 +47,7 @@ const Template = ({
     <>
         <button
             type="button"
+            id="button"
             style={{ position: 'absolute', top: '50%', left: '50%' }}
             onClick={() => {
                 toast.addToast({
@@ -66,14 +67,15 @@ const Template = ({
     </>
 );
 
-export const EXAMPLE_DEFAULT = Template.bind({});
+export const TOAST_DEFAULT = Template.bind({});
 
-EXAMPLE_DEFAULT.args = {
+TOAST_DEFAULT.args = {
     type: 'default',
+    duration: 4000,
 };
 
-export const EXAMPLE_ERROR = Template.bind({});
+export const TOAST_ERROR = Template.bind({});
 
-EXAMPLE_ERROR.args = {
+TOAST_ERROR.args = {
     type: 'error',
 };

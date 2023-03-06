@@ -1,8 +1,7 @@
 import PropTypes from 'prop-types';
 import React from 'react';
 
-import useToast from '@/hooks/useToast';
-
+import useToast from '../../hooks/useToast';
 import { CloseButton, Description, Title, Wrapper } from './styled';
 
 const Toast = ({
@@ -28,6 +27,7 @@ const Toast = ({
 
     return (
         <Wrapper
+            data-test="toast"
             isClosing={isClosing}
             icon={icon}
             backgroundColor={backgroundColor}
