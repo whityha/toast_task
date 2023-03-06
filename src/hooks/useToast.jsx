@@ -1,5 +1,7 @@
 import { useEffect, useState } from 'react';
 
+import Theme from '../theme/index';
+
 const useToast = ({ duration, deleteToast, animationDuration, id }) => {
     const [isClosing, setIsClosing] = useState(false);
 
@@ -13,7 +15,7 @@ const useToast = ({ duration, deleteToast, animationDuration, id }) => {
     useEffect(() => {
         const timer = setTimeout(() => {
             animatedToastDelete(id);
-        }, duration);
+        }, duration + Theme.animationDuration);
         return () => {
             clearTimeout(timer);
         };

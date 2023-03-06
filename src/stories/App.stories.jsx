@@ -79,3 +79,21 @@ export const TOAST_ERROR = Template.bind({});
 TOAST_ERROR.args = {
     type: 'error',
 };
+
+export const TOAST_WARNING = Template.bind({});
+
+TOAST_WARNING.args = {
+    type: 'warning',
+};
+
+export const TOAST_INFO = Template.bind({});
+
+TOAST_INFO.args = {
+    type: 'info',
+};
+
+export const TOAST_SUCCESS = Template.bind({});
+
+TOAST_SUCCESS.args = {
+    type: 'success',
+};
