@@ -1,7 +1,7 @@
 import { ANIMATION, POSITION, TYPE } from './index';
 
 export default {
-    type: TYPE.SUCCESS,
+    type: TYPE.DEFAULT,
     title: 'Default title',
     description: 'Default description',
     position: POSITION.BOTTOM_RIGHT,

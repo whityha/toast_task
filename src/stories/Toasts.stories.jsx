@@ -1,79 +1,22 @@
 import React from 'react';
 
-import ContainerToast from '../components/Container';
-import toast from '../utils/controller';
+import Toast from '../components/Toast';
+import defaultParameters from '../constants/defaultParameters';
+import normalizeParams from '../utils/normalizeParams';
 
 export default {
-    title: 'Example/App',
-    component: ContainerToast,
-    argTypes: {
-        title: {
-            type: 'string',
-        },
-        description: {
-            type: 'string',
-        },
-        type: {
-            control: { type: 'radio' },
-            options: ['error', 'warning', 'info', 'success'],
-        },
-        duration: {
-            control: { type: 'number' },
-        },
-        position: {
-            control: { type: 'radio' },
-            options: ['top-left', 'top-right', 'bottom-left', 'bottom-right'],
-        },
-        animation: {
-            control: { type: 'radio' },
-            options: ['bubble', 'opacity'],
-        },
-        translate: {
-            control: { type: 'object' },
-        },
-    },
+    title: 'TOASTS/ToastExamples',
+    component: Toast,
 };
 
-const Template = ({
-    type,
-    animation,
-    title,
-    description,
-    duration,
-    translate,
-    position,
-}) => {
-    const showToast = () => {
-        toast.addToast({
-            position,
-            title,
-            description,
-            type,
-            duration,
-            animation,
-            translate,
-        });
-    };
-    return (
-        <>
-            <button
-                type="button"
-                id="button"
-                style={{ position: 'absolute', top: '50%', left: '50%' }}
-                onClick={showToast}
-            >
-                CLICK
-            </button>
-            <ContainerToast />
-        </>
-    );
+const Template = ({ type }) => {
+    const parameters = normalizeParams({ ...defaultParameters, type });
+    return <Toast {...parameters} duration={1000000} type={type} />;
 };
-
 export const TOAST_DEFAULT = Template.bind({});
 
 TOAST_DEFAULT.args = {
     type: 'default',
-    duration: 4000,
 };
 
 export const TOAST_ERROR = Template.bind({});

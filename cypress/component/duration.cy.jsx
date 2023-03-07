@@ -3,17 +3,17 @@ import { composeStories } from '@storybook/testing-react';
 import chaiColors from 'chai-colors';
 import React from 'react';
 
-import * as stories from '../../src/stories/Toasts.stories';
+import * as stories from '../../src/stories/ToastSettings.stories';
 import Theme from '../../src/theme/theme';
 
 chai.use(chaiColors);
 
-const { TOAST_DEFAULT } = composeStories(stories);
+const { TOAST } = composeStories(stories);
 
 describe('DURATION', () => {
     it('should close after delay', () => {
         const duration = 5000;
-        mount(<TOAST_DEFAULT duration={duration} />);
+        mount(<TOAST duration={duration} />);
         cy.get('#button').click();
         cy.wait(duration + 2 * Theme.animationDuration)
             .get(`[data-test=toast]`, { timeout: 0 })
@@ -24,7 +24,7 @@ describe('DURATION', () => {
 describe('DURATION', () => {
     it('should be opened before delay', () => {
         const duration = 3000;
-        mount(<TOAST_DEFAULT duration={duration} />);
+        mount(<TOAST duration={duration} />);
         cy.get('#button').click();
         cy.wait(duration + 2 * Theme.animationDuration - 100)
             .get(`[data-test=toast]`, { timeout: 0 })

@@ -3,15 +3,15 @@ import { composeStories } from '@storybook/testing-react';
 import chaiColors from 'chai-colors';
 import React from 'react';
 
-import * as stories from '../../src/stories/Toasts.stories';
+import * as stories from '../../src/stories/ToastSettings.stories';
 
 chai.use(chaiColors);
 
-const { TOAST_DEFAULT } = composeStories(stories);
+const { TOAST } = composeStories(stories);
 
 describe('MAX_TOAST_TOGETHER', () => {
     it('should render only 3 toasts', () => {
-        mount(<TOAST_DEFAULT />);
+        mount(<TOAST />);
         cy.get('#button').click();
         cy.wait(1000).get('#button').click();
         cy.get('#button').click();
