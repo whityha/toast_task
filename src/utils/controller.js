@@ -1,3 +1,5 @@
+import uuid from 'uuid4';
+
 import { ANIMATION, POSITION, TYPE } from '../constants';
 import defaultParameters from '../constants/defaultParameters';
 import Theme from '../theme/theme';
@@ -11,6 +13,8 @@ class ToastSingleton {
         return ToastSingleton.instance;
     }
 
+    toasts = [];
+
     TYPE = TYPE;
 
     POSITION = POSITION;
@@ -23,7 +27,19 @@ class ToastSingleton {
             ...defaultParameters,
             ...validParams,
         });
-        this.toastContainer.addToastInList(toastParameters);
+        if (this.toasts.length < 3) {
+            this.toasts.push({ ...toastParameters, id: uuid() });
+            this.setToasts(this.toasts);
+        }
+    }
+
+    deleteToast(id) {
+        this.toasts = [...this.toasts].filter((toast) => toast.id !== id);
+        this.setToasts(this.toasts);
+    }
+
+    setToasts(toasts) {
+        this.toastContainer.setToastsList(toasts);
     }
 
     setSettingsToType = (type, customParams) => {
@@ -38,4 +54,5 @@ class ToastSingleton {
 }
 
 const toastInstance = ToastSingleton.getInstance();
+
 export default toastInstance;

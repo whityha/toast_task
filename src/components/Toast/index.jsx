@@ -14,13 +14,11 @@ const Toast = ({
     animation,
     icon,
     duration,
-    deleteToast,
     id,
     animationDuration,
 }) => {
-    const { isClosing, animatedToastDelete } = useToast({
+    const { isClosing, deleteToastWithAnimate } = useToast({
         duration,
-        deleteToast,
         id,
         animationDuration,
     });
@@ -35,7 +33,10 @@ const Toast = ({
             animation={animation}
             animationDuration={animationDuration}
         >
-            <CloseButton disabled={isClosing} onClick={animatedToastDelete} />
+            <CloseButton
+                disabled={isClosing}
+                onClick={deleteToastWithAnimate}
+            />
             <Title color={titleColor}>{title}</Title>
             <Description color={descriptionColor}>{description}</Description>
         </Wrapper>
@@ -55,7 +56,6 @@ Toast.propTypes = {
         translateX: PropTypes.string,
         translateY: PropTypes.string,
     }),
-    deleteToast: PropTypes.func,
     id: PropTypes.string,
     duration: PropTypes.number,
     animationDuration: PropTypes.number,
