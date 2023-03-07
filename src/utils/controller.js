@@ -1,19 +1,10 @@
 import { ANIMATION, POSITION, TYPE } from '../constants';
+import defaultParameters from '../constants/defaultParameters';
 import Theme from '../theme/theme';
 import normalizeParams from './normalizeParams';
 import validateParams from './validateFilter';
 
 class ToastSingleton {
-    static defaultParams = {
-        type: TYPE.SUCCESS,
-        title: 'Default title',
-        description: 'Default description',
-        position: POSITION.BOTTOM_RIGHT,
-        duration: 1000,
-        animationDuration: 500,
-        animation: ANIMATION.BUBBLE,
-    };
-
     static getInstance() {
         if (!ToastSingleton.instance)
             ToastSingleton.instance = new ToastSingleton();
@@ -26,10 +17,10 @@ class ToastSingleton {
 
     ANIMATION = ANIMATION;
 
-    addToast(customParams = ToastSingleton.defaultParams) {
+    addToast(customParams = defaultParameters) {
         const validParams = validateParams(customParams);
         const toastParameters = normalizeParams({
-            ...ToastSingleton.defaultParams,
+            ...defaultParameters,
             ...validParams,
         });
         this.toastContainer.addToastInList(toastParameters);

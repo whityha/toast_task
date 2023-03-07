@@ -3,8 +3,8 @@ import { composeStories } from '@storybook/testing-react';
 import chaiColors from 'chai-colors';
 import React from 'react';
 
-import * as stories from '../../src/stories/App.stories';
-import Theme from '../../src/theme/index';
+import * as stories from '../../src/stories/Toasts.stories';
+import Theme from '../../src/theme/theme';
 import toast from '../../src/utils/controller';
 
 chai.use(chaiColors);
