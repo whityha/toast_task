@@ -44,8 +44,8 @@ class ToastSingleton {
         return { ...Theme[type] };
     };
 
-    resetSettings = () => {
-        Theme.resetSettings();
+    resetSettings = (type) => {
+        Theme.resetSettings(type);
     };
 }
 
