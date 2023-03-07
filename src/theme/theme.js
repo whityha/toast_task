@@ -5,34 +5,34 @@ import { COLORS, ICONS } from './config';
 const { white, red, green, purple, blue, yellow } = COLORS;
 const { error, success, info, warning } = ICONS;
 
+const generalColors = {
+    titleColor: white,
+    descriptionColor: white,
+};
+
 const Theme = {
     [TYPE.DEFAULT]: {
-        titleColor: white,
-        descriptionColor: white,
+        ...generalColors,
         backgroundColor: blue,
         icon: info,
     },
     [TYPE.WARNING]: {
-        titleColor: white,
-        descriptionColor: white,
+        ...generalColors,
         backgroundColor: yellow,
         icon: warning,
     },
     [TYPE.ERROR]: {
-        titleColor: white,
-        descriptionColor: white,
+        ...generalColors,
         backgroundColor: red,
         icon: error,
     },
     [TYPE.INFO]: {
-        titleColor: white,
-        descriptionColor: white,
+        ...generalColors,
         backgroundColor: purple,
         icon: info,
     },
     [TYPE.SUCCESS]: {
-        titleColor: white,
-        descriptionColor: white,
+        ...generalColors,
         backgroundColor: green,
         icon: success,
     },
@@ -70,40 +70,35 @@ const Theme = {
         switch (type) {
             case TYPE.ERROR:
                 Theme[TYPE.ERROR] = {
-                    titleColor: white,
-                    descriptionColor: white,
+                    ...generalColors,
                     backgroundColor: red,
                     icon: error,
                 };
                 break;
             case TYPE.WARNING:
                 Theme[TYPE.WARNING] = {
-                    titleColor: white,
-                    descriptionColor: white,
+                    ...generalColors,
                     backgroundColor: yellow,
                     icon: warning,
                 };
                 break;
             case TYPE.INFO:
                 Theme[TYPE.INFO] = {
-                    titleColor: white,
-                    descriptionColor: white,
+                    ...generalColors,
                     backgroundColor: purple,
                     icon: info,
                 };
                 break;
             case TYPE.SUCCESS:
                 Theme[TYPE.SUCCESS] = {
-                    titleColor: white,
-                    descriptionColor: white,
+                    ...generalColors,
                     backgroundColor: green,
                     icon: success,
                 };
                 break;
             default: {
                 Theme[TYPE.DEFAULT] = {
-                    titleColor: white,
-                    descriptionColor: white,
+                    ...generalColors,
                     backgroundColor: blue,
                     icon: info,
                 };

@@ -42,29 +42,32 @@ const Template = ({
     duration,
     translate,
     position,
-}) => (
-    <>
-        <button
-            type="button"
-            id="button"
-            style={{ position: 'absolute', top: '50%', left: '50%' }}
-            onClick={() => {
-                toast.addToast({
-                    position,
-                    title,
-                    description,
-                    type,
-                    duration,
-                    animation,
-                    translate,
-                });
-            }}
-        >
-            CLICK
-        </button>
-        <ContainerToast />
-    </>
-);
+}) => {
+    const showToast = () => {
+        toast.addToast({
+            position,
+            title,
+            description,
+            type,
+            duration,
+            animation,
+            translate,
+        });
+    };
+    return (
+        <>
+            <button
+                type="button"
+                id="button"
+                style={{ position: 'absolute', top: '50%', left: '50%' }}
+                onClick={showToast}
+            >
+                CLICK
+            </button>
+            <ContainerToast />
+        </>
+    );
+};
 
 export const TOAST_DEFAULT = Template.bind({});
 
