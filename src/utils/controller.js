@@ -1,6 +1,5 @@
-/* eslint-disable class-methods-use-this */
 import { ANIMATION, POSITION, TYPE } from '../constants';
-import Theme from '../theme';
+import Theme from '../theme/theme';
 import normalizeParams from './normalizeParams';
 import validateParams from './validateFilter';
 
@@ -36,8 +35,6 @@ class ToastSingleton {
         this.toastContainer.addToastInList(toastParameters);
     }
 
-    getSettingsByType = (type) => ({ ...Theme[type] });
-
     setSettingsToType = (type, customParams) => {
         const params = validateParams(customParams);
         Theme[type] = { ...Theme[type], ...params };
@@ -49,4 +46,5 @@ class ToastSingleton {
     };
 }
 
-export default ToastSingleton.getInstance();
+const toastInstance = ToastSingleton.getInstance();
+export default toastInstance;

@@ -1,4 +1,3 @@
-/* eslint-disable no-undef */
 import { mount } from '@cypress/react';
 import { composeStories } from '@storybook/testing-react';
 import chaiColors from 'chai-colors';

@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
 
-import Theme from '../theme/index';
+import Theme from '../theme/theme';
 
 const useToast = ({ duration, deleteToast, animationDuration, id }) => {
     const [isClosing, setIsClosing] = useState(false);
