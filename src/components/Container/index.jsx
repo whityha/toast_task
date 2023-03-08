@@ -32,7 +32,12 @@ const ContainerToast = () => {
                             position={position}
                         >
                             {toastsParams.map(({ id, ...toastParams }) => (
-                                <Toast key={id} id={id} {...toastParams} />
+                                <Toast
+                                    key={id}
+                                    id={id}
+                                    position={position}
+                                    {...toastParams}
+                                />
                             ))}
                         </PositionContainer>
                     ))}

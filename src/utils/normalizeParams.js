@@ -1,6 +1,8 @@
 import { MAX_DESCRIPTION_LENGTH, MAX_TITLE_LENGTH } from '../constants';
 import Theme from '../theme/theme';
 
+import getAnimation from './getAnimation';
+
 export default (customParams) => {
     const {
         title,
@@ -10,6 +12,7 @@ export default (customParams) => {
         titleColor,
         descriptionColor,
         animation,
+        position,
         ...props
     } = customParams;
     const normalizeParams = {
@@ -27,7 +30,8 @@ export default (customParams) => {
         descriptionColor: descriptionColor || Theme[type].descriptionColor,
 
         icon: Theme[type].icon,
-        animation: Theme.animation[animation],
+        animation: getAnimation(animation, position),
+        position,
 
         ...props,
     };

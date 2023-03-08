@@ -5,9 +5,17 @@ import toast from '../utils/controller';
 
 const useToast = ({ duration, animationDuration, id }) => {
     const [isClosing, setIsClosing] = useState(false);
+    const [isForceClosing, setIsForceClosing] = useState(false);
 
-    const deleteToastWithAnimate = () => {
+    const closeToast = () => {
         setIsClosing(true);
+        setTimeout(() => {
+            toast.deleteToast(id);
+        }, animationDuration);
+    };
+
+    const forceCloseToast = () => {
+        setIsForceClosing(true);
         setTimeout(() => {
             toast.deleteToast(id);
         }, animationDuration);
@@ -15,7 +23,7 @@ const useToast = ({ duration, animationDuration, id }) => {
 
     useEffect(() => {
         const timer = setTimeout(() => {
-            deleteToastWithAnimate(id);
+            closeToast(id);
         }, duration + Theme.animationDuration);
         return () => {
             toast.deleteToast(id);
@@ -25,7 +33,8 @@ const useToast = ({ duration, animationDuration, id }) => {
 
     return {
         isClosing,
-        deleteToastWithAnimate,
+        isForceClosing,
+        forceCloseToast,
     };
 };
 

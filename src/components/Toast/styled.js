@@ -1,5 +1,7 @@
 import styled, { css } from 'styled-components';
 
+import getAnimation from '../../utils/getAnimation';
+
 export const Wrapper = styled.div`
     position: relative;
     display: flex;
@@ -24,14 +26,28 @@ export const Wrapper = styled.div`
                   top: ${translate.translateY};
               `
             : ''};
-    ${({ isClosing, animationDuration, animation: { open, close } }) =>
-        isClosing
+    ${({
+        isClosing,
+        isForceClosing,
+        animation: { open, close },
+        theme: { animationDuration },
+        position,
+    }) => {
+        if (isForceClosing) {
+            const animation = getAnimation('slide', position);
+            return css`
+                animation: ${animation.close} ${animationDuration}ms ease
+                    forwards;
+            `;
+        }
+        return isClosing
             ? css`
                   animation: ${close} ${animationDuration}ms ease forwards;
               `
             : css`
                   animation: ${open} ${animationDuration}ms ease;
-              `};
+              `;
+    }};
 
     &:last-child {
         margin-bottom: 0px;

@@ -26,7 +26,7 @@ export default {
         },
         animation: {
             control: { type: 'radio' },
-            options: ['bubble', 'opacity'],
+            options: ['bubble', 'opacity', 'slide'],
         },
         translate: {
             control: { type: 'object' },

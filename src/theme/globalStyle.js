@@ -10,6 +10,7 @@ export default createGlobalStyle`
     }
     body {
         transition: 0s;
+        overflow-x: hidden;
     }
     a {
         color: inherit;

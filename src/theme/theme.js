@@ -1,6 +1,15 @@
 import { ANIMATION, POSITION, TYPE } from '../constants';
 
-import { bubble, bubbleClose, opacity, opacityClose } from './animations';
+import {
+    bubble,
+    bubbleClose,
+    opacity,
+    opacityClose,
+    slideCloseLeft,
+    slideCloseRight,
+    slideOpenLeft,
+    slideOpenRight,
+} from './animations';
 import { COLORS, ICONS } from './config';
 
 const { white, red, green, purple, blue, yellow } = COLORS;
@@ -64,6 +73,14 @@ const Theme = {
         [ANIMATION.BUBBLE]: {
             open: bubble,
             close: bubbleClose,
+        },
+        [ANIMATION.SLIDE_RIGHT]: {
+            open: slideOpenRight,
+            close: slideCloseRight,
+        },
+        [ANIMATION.SLIDE_LEFT]: {
+            open: slideOpenLeft,
+            close: slideCloseLeft,
         },
     },
     width: {

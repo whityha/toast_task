@@ -16,9 +16,10 @@ const Toast = ({
     icon,
     duration,
     id,
+    position,
     animationDuration,
 }) => {
-    const { isClosing, deleteToastWithAnimate } = useToast({
+    const { isClosing, isForceClosing, forceCloseToast } = useToast({
         duration,
         id,
         animationDuration,
@@ -28,15 +29,17 @@ const Toast = ({
         <Wrapper
             data-test="toast"
             isClosing={isClosing}
+            isForceClosing={isForceClosing}
             icon={icon}
             backgroundColor={backgroundColor}
             translate={translate}
             animation={animation}
             animationDuration={animationDuration}
+            position={position}
         >
             <CloseButton
                 disabled={isClosing}
-                onClick={deleteToastWithAnimate}
+                onClick={forceCloseToast}
                 color={titleColor}
             />
             <Title color={titleColor}>{title}</Title>

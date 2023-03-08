@@ -20,4 +20,6 @@ export const TYPE = {
 export const ANIMATION = {
     OPACITY: 'opacity',
     BUBBLE: 'bubble',
+    SLIDE_RIGHT: 'slide_right',
+    SLIDE_LEFT: 'slide_left',
 };
