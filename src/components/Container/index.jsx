@@ -1,43 +1,55 @@
-import PropTypes from 'prop-types';
 import React from 'react';
 import ReactDOM from 'react-dom';
+import PropTypes from 'prop-types';
+import { ThemeProvider } from 'styled-components';
 
-import useContainer from '../../hooks/useContainer';
-import Theme from '../../theme';
+import useBindContainer from '../../hooks/useBindContainer';
+import GlobalStyle from '../../theme/globalStyle';
+import Theme from '../../theme/theme';
+import makePositionContainers from '../../utils/makePositionContainers';
 import ErrorBoundary from '../ErrorBoundary';
 import Toast from '../Toast';
-import { Container, PositionContainer } from './styled';
 
-const Position = ({ position, children }) => (
-    <PositionContainer position={Theme.position[position]}>
+import { Wrapper, WrapperPosition } from './styled';
+
+const PositionContainer = ({ position, children }) => (
+    <WrapperPosition position={Theme.position[position]}>
         {children}
-    </PositionContainer>
+    </WrapperPosition>
 );
 
 const ContainerToast = () => {
-    const { deleteToast, toastPositionContainers } = useContainer();
+    const { toasts } = useBindContainer();
+    const toastPositionContainers = makePositionContainers([...toasts]);
+
     return ReactDOM.createPortal(
         <ErrorBoundary>
-            <Container>
-                {toastPositionContainers.map(([position, toastsParams]) => (
-                    <Position key={`container-${position}`} position={position}>
-                        {toastsParams.map(({ id, ...toastParams }) => (
-                            <Toast
-                                key={id}
-                                id={id}
-                                deleteToast={deleteToast}
-                                {...toastParams}
-                            />
-                        ))}
-                    </Position>
-                ))}
-            </Container>
+            <ThemeProvider theme={Theme}>
+                <Wrapper>
+                    {toastPositionContainers.map(([position, toastsParams]) => (
+                        <PositionContainer
+                            key={`container-${position}`}
+                            position={position}
+                        >
+                            {toastsParams.map(({ id, ...toastParams }) => (
+                                <Toast
+                                    key={id}
+                                    id={id}
+                                    position={position}
+                                    {...toastParams}
+                                />
+                            ))}
+                        </PositionContainer>
+                    ))}
+                </Wrapper>
+                <GlobalStyle />
+            </ThemeProvider>
         </ErrorBoundary>,
         document.body
     );
 };
 
-Position.propTypes = {
+PositionContainer.propTypes = {
     position: PropTypes.string,
     children: PropTypes.node,
 };

@@ -1,29 +1,40 @@
 import { useEffect, useState } from 'react';
 
-import Theme from '../theme/index';
+import Theme from '../theme/theme';
+import toast from '../utils/controller';
 
-const useToast = ({ duration, deleteToast, animationDuration, id }) => {
+const useToast = ({ duration, animationDuration, id }) => {
     const [isClosing, setIsClosing] = useState(false);
+    const [isForceClosing, setIsForceClosing] = useState(false);
 
-    const animatedToastDelete = () => {
+    const closeToast = () => {
         setIsClosing(true);
         setTimeout(() => {
-            deleteToast(id);
+            toast.deleteToast(id);
+        }, animationDuration);
+    };
+
+    const forceCloseToast = () => {
+        setIsForceClosing(true);
+        setTimeout(() => {
+            toast.deleteToast(id);
         }, animationDuration);
     };
 
     useEffect(() => {
         const timer = setTimeout(() => {
-            animatedToastDelete(id);
+            closeToast(id);
         }, duration + Theme.animationDuration);
         return () => {
+            toast.deleteToast(id);
             clearTimeout(timer);
         };
     }, [id]);
 
     return {
         isClosing,
-        animatedToastDelete,
+        isForceClosing,
+        forceCloseToast,
     };
 };
 

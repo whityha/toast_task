@@ -1,25 +1,20 @@
-/* eslint-disable class-methods-use-this */
+import uuid from 'uuid4';
+
 import { ANIMATION, POSITION, TYPE } from '../constants';
-import Theme from '../theme';
+import defaultParameters from '../constants/defaultParameters';
+import Theme from '../theme/theme';
+
 import normalizeParams from './normalizeParams';
 import validateParams from './validateFilter';
 
 class ToastSingleton {
-    static defaultParams = {
-        type: TYPE.SUCCESS,
-        title: 'Default title',
-        description: 'Default description',
-        position: POSITION.BOTTOM_RIGHT,
-        duration: 1000,
-        animationDuration: 500,
-        animation: ANIMATION.BUBBLE,
-    };
-
     static getInstance() {
         if (!ToastSingleton.instance)
             ToastSingleton.instance = new ToastSingleton();
         return ToastSingleton.instance;
     }
+
+    toasts = [];
 
     TYPE = TYPE;
 
@@ -27,16 +22,26 @@ class ToastSingleton {
 
     ANIMATION = ANIMATION;
 
-    addToast(customParams = ToastSingleton.defaultParams) {
+    addToast(customParams = defaultParameters) {
         const validParams = validateParams(customParams);
         const toastParameters = normalizeParams({
-            ...ToastSingleton.defaultParams,
+            ...defaultParameters,
             ...validParams,
         });
-        this.toastContainer.addToastInList(toastParameters);
+        if (this.toasts.length < 3) {
+            this.toasts.push({ ...toastParameters, id: uuid() });
+            this.setToasts(this.toasts);
+        }
     }
 
-    getSettingsByType = (type) => ({ ...Theme[type] });
+    deleteToast(id) {
+        this.toasts = [...this.toasts].filter((toast) => toast.id !== id);
+        this.setToasts(this.toasts);
+    }
+
+    setToasts(toasts) {
+        this.toastContainer.setToastsList(toasts);
+    }
 
     setSettingsToType = (type, customParams) => {
         const params = validateParams(customParams);
@@ -49,4 +54,6 @@ class ToastSingleton {
     };
 }
 
-export default ToastSingleton.getInstance();
+const toastInstance = ToastSingleton.getInstance();
+
+export default toastInstance;

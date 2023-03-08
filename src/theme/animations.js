@@ -51,3 +51,59 @@ export const bubbleClose = keyframes`
     transform: scale(0);
   }
 `;
+
+export const slideCloseRight = keyframes`
+  0% {
+    transform: translateX(0%)
+  }
+
+  25% {
+    transform: translateX(-10%);
+  }
+
+  100% {
+    transform: translateX(150%)
+  }
+`;
+
+export const slideOpenRight = keyframes`
+  0% {
+    transform: translateX(150%)
+  }
+
+  75% {
+    transform: translateX(-10%)
+  }
+
+  100% {
+    transform: translateX(0%)
+  }
+`;
+
+export const slideCloseLeft = keyframes`
+  0% {
+    transform: translateX(0%)
+  }
+
+  25% {
+    transform: translateX(10%);
+  }
+
+  100% {
+    transform: translateX(-150%)
+  }
+`;
+
+export const slideOpenLeft = keyframes`
+  0% {
+    transform: translateX(-150%)
+  }
+
+  75% {
+    transform: translateX(10%);
+  }
+
+  100% {
+    transform: translateX(0%)
+  }
+`;

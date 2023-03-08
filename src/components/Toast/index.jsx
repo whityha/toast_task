@@ -1,7 +1,8 @@
-import PropTypes from 'prop-types';
 import React from 'react';
+import PropTypes from 'prop-types';
 
 import useToast from '../../hooks/useToast';
+
 import { CloseButton, Description, Title, Wrapper } from './styled';
 
 const Toast = ({
@@ -14,13 +15,12 @@ const Toast = ({
     animation,
     icon,
     duration,
-    deleteToast,
     id,
+    position,
     animationDuration,
 }) => {
-    const { isClosing, animatedToastDelete } = useToast({
+    const { isClosing, isForceClosing, forceCloseToast } = useToast({
         duration,
-        deleteToast,
         id,
         animationDuration,
     });
@@ -29,13 +29,19 @@ const Toast = ({
         <Wrapper
             data-test="toast"
             isClosing={isClosing}
+            isForceClosing={isForceClosing}
             icon={icon}
             backgroundColor={backgroundColor}
             translate={translate}
             animation={animation}
             animationDuration={animationDuration}
+            position={position}
         >
-            <CloseButton disabled={isClosing} onClick={animatedToastDelete} />
+            <CloseButton
+                disabled={isClosing}
+                onClick={forceCloseToast}
+                color={titleColor}
+            />
             <Title color={titleColor}>{title}</Title>
             <Description color={descriptionColor}>{description}</Description>
         </Wrapper>
@@ -55,7 +61,6 @@ Toast.propTypes = {
         translateX: PropTypes.string,
         translateY: PropTypes.string,
     }),
-    deleteToast: PropTypes.func,
     id: PropTypes.string,
     duration: PropTypes.number,
     animationDuration: PropTypes.number,
