@@ -31,11 +31,15 @@ export default {
         translate: {
             control: { type: 'object' },
         },
+        backgroundColor: {
+            control: { type: 'color' },
+        },
     },
 };
 
 const Template = ({
     type,
+    backgroundColor,
     animation,
     title,
     description,
@@ -52,6 +56,7 @@ const Template = ({
             duration,
             animation,
             translate,
+            backgroundColor,
         });
     };
     return (

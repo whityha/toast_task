@@ -11,7 +11,7 @@
         "ecmaVersion": "latest",
         "sourceType": "module"
     },
-    "plugins": ["react", "simple-import-sort", "cypress", "prettier"],
+    "plugins": ["react", "simple-import-sort", "prettier"],
     "rules": {
         "react/function-component-definition": [
             2,
