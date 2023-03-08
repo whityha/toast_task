@@ -26,7 +26,7 @@ const useToast = ({ duration, animationDuration, id }) => {
             closeToast(id);
         }, duration + Theme.animationDuration);
         return () => {
-            if (toast.containerToast) toast.deleteToast(id);
+            toast.deleteToast(id);
             clearTimeout(timer);
         };
     }, [id]);
