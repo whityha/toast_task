@@ -25,6 +25,7 @@ const useToast = ({ duration, animationDuration, id }) => {
 
     return {
         isClosing,
+        deleteToastWithAnimate,
     };
 };
 

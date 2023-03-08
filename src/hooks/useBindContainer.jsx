@@ -1,9 +1,8 @@
 import { useEffect, useImperativeHandle, useRef, useState } from 'react';
 
 import toastInstance from '../utils/controller';
-import makePositionContainers from '../utils/makePositionContainers';
 
-const useContainer = () => {
+const useBindContainer = () => {
     const [toasts, setToasts] = useState([]);
     const ref = useRef(null);
 
@@ -16,12 +15,6 @@ const useContainer = () => {
     useEffect(() => {
         toastInstance.toastContainer = ref.current;
     }, [toasts]);
-
-    const toastPositionContainers = makePositionContainers([...toasts]);
-
-    return {
-        toastPositionContainers,
-    };
 };
 
-export default useContainer;
+export default useBindContainer;

@@ -1,4 +1,5 @@
 import { ANIMATION, POSITION, TYPE } from '../constants';
+
 import { bubble, bubbleClose, opacity, opacityClose } from './animations';
 import { COLORS, ICONS } from './config';
 

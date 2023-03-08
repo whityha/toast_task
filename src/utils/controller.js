@@ -3,6 +3,7 @@ import uuid from 'uuid4';
 import { ANIMATION, POSITION, TYPE } from '../constants';
 import defaultParameters from '../constants/defaultParameters';
 import Theme from '../theme/theme';
+
 import normalizeParams from './normalizeParams';
 import validateParams from './validateFilter';
 

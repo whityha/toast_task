@@ -1,10 +1,10 @@
 import styled, { css } from 'styled-components';
 
-export const Container = styled.div`
+export const Wrapper = styled.div`
     display: block;
 `;
 
-export const PositionContainer = styled.div`
+export const WrapperPosition = styled.div`
     position: absolute;
     display: flex;
     flex-direction: column;
@@ -30,5 +30,3 @@ export const PositionContainer = styled.div`
             bottom: ${bottom}px;
         `};
 `;
-
-export default Container;

@@ -1,7 +1,8 @@
-import PropTypes from 'prop-types';
 import React from 'react';
+import PropTypes from 'prop-types';
 
 import useToast from '../../hooks/useToast';
+
 import { CloseButton, Description, Title, Wrapper } from './styled';
 
 const Toast = ({

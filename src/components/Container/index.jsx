@@ -1,43 +1,48 @@
-import PropTypes from 'prop-types';
 import React from 'react';
 import ReactDOM from 'react-dom';
+import PropTypes from 'prop-types';
 
-import useContainer from '../../hooks/useContainer';
+import useBindContainer from '../../hooks/useBindContainer';
 import Theme from '../../theme/theme';
+import controller from '../../utils/controller';
+import makePositionContainers from '../../utils/makePositionContainers';
 import ErrorBoundary from '../ErrorBoundary';
 import Toast from '../Toast';
-import { Container, PositionContainer } from './styled';
 
-const Position = ({ position, children }) => (
-    <PositionContainer position={Theme.position[position]}>
+import { Wrapper, WrapperPosition } from './styled';
+
+const PositionContainer = ({ position, children }) => (
+    <WrapperPosition position={Theme.position[position]}>
         {children}
-    </PositionContainer>
+    </WrapperPosition>
 );
 
 const ContainerToast = () => {
-    const { deleteToast, toastPositionContainers } = useContainer();
+    useBindContainer();
+    const toastPositionContainers = makePositionContainers([
+        ...controller.toasts,
+    ]);
+
     return ReactDOM.createPortal(
         <ErrorBoundary>
-            <Container>
+            <Wrapper>
                 {toastPositionContainers.map(([position, toastsParams]) => (
-                    <Position key={`container-${position}`} position={position}>
+                    <PositionContainer
+                        key={`container-${position}`}
+                        position={position}
+                    >
                         {toastsParams.map(({ id, ...toastParams }) => (
-                            <Toast
-                                key={id}
-                                id={id}
-                                deleteToast={deleteToast}
-                                {...toastParams}
-                            />
+                            <Toast key={id} id={id} {...toastParams} />
                         ))}
-                    </Position>
+                    </PositionContainer>
                 ))}
-            </Container>
+            </Wrapper>
         </ErrorBoundary>,
         document.body
     );
 };
 
-Position.propTypes = {
+PositionContainer.propTypes = {
     position: PropTypes.string,
     children: PropTypes.node,
 };

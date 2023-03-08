@@ -1,2 +1,5 @@
 node_modules
 index.es.js
+cypress
+!cypress/components
+storybook-static    
