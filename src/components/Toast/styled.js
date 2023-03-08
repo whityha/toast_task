@@ -1,21 +1,19 @@
 import styled, { css } from 'styled-components';
 
-const generalStyle = css`
-    padding: 0;
-    margin: 0;
-    box-sizing: border-box;
-`;
-
 export const Wrapper = styled.div`
-    ${generalStyle};
     position: relative;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    width: 300px;
-    height: 70px;
-    padding: 12px 30px 12px 60px;
-    border-radius: 10px;
+    width: ${({ theme: { width } }) => width.max}px;
+    height: ${({ theme: { height } }) => height.medium}px;
+    padding: ${({
+        theme: {
+            padding: { p1, p3, p6 },
+        },
+    }) => `${p1}px ${p3}px ${p1}px ${p6}px`};
+    margin-bottom: ${({ theme: { margin } }) => margin.m1}px;
+    border-radius: ${({ theme: { borderRadius } }) => borderRadius.min}px;
     background: ${({ icon }) =>
         `url("${icon}") no-repeat left 10px center / 35px`};
     background-color: ${({ backgroundColor }) => backgroundColor};
@@ -34,17 +32,20 @@ export const Wrapper = styled.div`
             : css`
                   animation: ${open} ${animationDuration}ms ease;
               `};
+
+    &:last-child {
+        margin-bottom: 0px;
+    }
 `;
 
 export const Title = styled.p`
-    ${generalStyle};
     color: ${({ color }) => color};
-    font-size: 20px;
+    font-size: ${({ theme: { fontSize } }) => fontSize.max}px;
 `;
 
 export const Description = styled.p`
-    ${generalStyle};
-    font-size: 14px;
+    font-size: ${({ theme: { fontSize } }) => fontSize.min}px;
+
     color: ${({ color }) => color};
     word-wrap: break-word;
 `;
@@ -55,17 +56,17 @@ export const CloseButton = styled.button`
     right: 10px;
     background: transparent;
     border: none;
-    width: 15px;
-    height: 15px;
+    width: ${({ theme: { closeButtonSize } }) => closeButtonSize.medium}px;
+    height: ${({ theme: { closeButtonSize } }) => closeButtonSize.medium}px;
     cursor: pointer;
     &:after {
         content: '';
         position: absolute;
         left: 50%;
         top: 50%;
-        width: 15px;
+        width: ${({ theme: { closeButtonSize } }) => closeButtonSize.medium}px;
         height: 1px;
-        background: white;
+        background: ${({ color }) => color};
         transform: translate(-50%, -50%) rotate(-45deg);
     }
     &:before {
@@ -73,9 +74,9 @@ export const CloseButton = styled.button`
         position: absolute;
         left: 50%;
         top: 50%;
-        width: 15px;
+        width: ${({ theme: { closeButtonSize } }) => closeButtonSize.medium}px;
         height: 1px;
-        background: white;
+        background: ${({ color }) => color};
         transform: translate(-50%, -50%) rotate(45deg);
     }
 `;

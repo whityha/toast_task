@@ -1,8 +1,10 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import PropTypes from 'prop-types';
+import { ThemeProvider } from 'styled-components';
 
 import useBindContainer from '../../hooks/useBindContainer';
+import GlobalStyle from '../../theme/globalStyle';
 import Theme from '../../theme/theme';
 import makePositionContainers from '../../utils/makePositionContainers';
 import ErrorBoundary from '../ErrorBoundary';
@@ -22,18 +24,21 @@ const ContainerToast = () => {
 
     return ReactDOM.createPortal(
         <ErrorBoundary>
-            <Wrapper>
-                {toastPositionContainers.map(([position, toastsParams]) => (
-                    <PositionContainer
-                        key={`container-${position}`}
-                        position={position}
-                    >
-                        {toastsParams.map(({ id, ...toastParams }) => (
-                            <Toast key={id} id={id} {...toastParams} />
-                        ))}
-                    </PositionContainer>
-                ))}
-            </Wrapper>
+            <ThemeProvider theme={Theme}>
+                <Wrapper>
+                    {toastPositionContainers.map(([position, toastsParams]) => (
+                        <PositionContainer
+                            key={`container-${position}`}
+                            position={position}
+                        >
+                            {toastsParams.map(({ id, ...toastParams }) => (
+                                <Toast key={id} id={id} {...toastParams} />
+                            ))}
+                        </PositionContainer>
+                    ))}
+                </Wrapper>
+                <GlobalStyle />
+            </ThemeProvider>
         </ErrorBoundary>,
         document.body
     );

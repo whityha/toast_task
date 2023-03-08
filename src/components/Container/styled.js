@@ -8,7 +8,6 @@ export const WrapperPosition = styled.div`
     position: absolute;
     display: flex;
     flex-direction: column;
-    gap: 10px;
     ${({ position: { left } }) =>
         left &&
         css`

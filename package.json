@@ -6,12 +6,11 @@
     "author": "Pavel Khapaliuk",
     "license": "MIT",
     "devDependencies": {
-        "@babel/core": "^7.21.0",
-        "@babel/preset-react": "^7.18.6",
         "@babel/cli": "^7.21.0",
+        "@babel/core": "^7.21.0",
         "@babel/preset-env": "^7.20.2",
         "@babel/preset-es2015": "^7.0.0-beta.53",
-        "babel-preset-es2015-rollup": "^3.0.0",
+        "@babel/preset-react": "^7.18.6",
         "@cypress/react": "^7.0.2",
         "@rollup/plugin-alias": "^4.0.3",
         "@rollup/plugin-babel": "^6.0.3",
@@ -31,6 +30,7 @@
         "@storybook/testing-library": "^0.0.13",
         "@storybook/testing-react": "^1.3.0",
         "babel-loader": "^8.3.0",
+        "babel-preset-es2015-rollup": "^3.0.0",
         "cypress": "^12.7.0",
         "eslint": "^7.32.0 || ^8.2.0",
         "eslint-config-airbnb": "^19.0.4",
@@ -42,6 +42,7 @@
         "eslint-plugin-react": "^7.28.0",
         "eslint-plugin-react-hooks": "^4.3.0",
         "eslint-plugin-simple-import-sort": "^10.0.0",
+        "html-webpack-plugin": "^5.5.0",
         "prettier": "^2.8.4",
         "react": "^18.2.0",
         "react-dom": "^18.2.0",
@@ -49,8 +50,7 @@
         "rollup": "^3.17.2",
         "rollup-plugin-peer-deps-external": "^2.2.4",
         "rollup-plugin-terser": "^7.0.2",
-        "storybook": "^6.5.16",        
-        "html-webpack-plugin": "^5.5.0",
+        "storybook": "^6.5.16",
         "styled-components": "^5.3.6"
     },
     "peerDependencies": {
@@ -60,12 +60,12 @@
     },
     "dependencies": {
         "chai-colors": "^1.0.1",
-        "prop-types": "^15.8.1",
-        "uuid4": "^2.0.3",
         "craco-alias": "^3.0.1",
+        "prop-types": "^15.8.1",
         "react": "^18.2.0",
         "react-dom": "^18.2.0",
-        "styled-components": "^5.3.6"
+        "styled-components": "^5.3.6",
+        "uuid4": "^2.0.3"
     },
     "scripts": {
         "eslint:fix": "eslint --fix .",

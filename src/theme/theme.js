@@ -66,6 +66,47 @@ const Theme = {
             close: bubbleClose,
         },
     },
+    width: {
+        min: 200,
+        medium: 250,
+        max: 300,
+    },
+    height: {
+        min: 60,
+        medium: 70,
+        max: 80,
+    },
+    closeButtonSize: {
+        min: 10,
+        medium: 15,
+        max: 20,
+    },
+    fontSize: {
+        min: 14,
+        max: 20,
+    },
+    borderRadius: {
+        min: 10,
+        medium: 20,
+        max: 30,
+    },
+    margin: {
+        m0: 0,
+        m1: 10,
+        m2: 20,
+        m3: 30,
+        m4: 40,
+        m5: 50,
+    },
+    padding: {
+        p0: 0,
+        p1: 10,
+        p2: 20,
+        p3: 30,
+        p4: 40,
+        p5: 50,
+        p6: 60,
+    },
 
     resetSettings(type = false) {
         switch (type) {

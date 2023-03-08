@@ -37,6 +37,7 @@ const Toast = ({
             <CloseButton
                 disabled={isClosing}
                 onClick={deleteToastWithAnimate}
+                color={titleColor}
             />
             <Title color={titleColor}>{title}</Title>
             <Description color={descriptionColor}>{description}</Description>
