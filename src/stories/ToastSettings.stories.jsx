@@ -4,7 +4,7 @@ import ContainerToast from '../components/Container';
 import toast from '../utils/controller';
 
 export default {
-    title: 'Seetings/Toast',
+    title: 'Settings/Toast',
     component: ContainerToast,
     argTypes: {
         title: {
