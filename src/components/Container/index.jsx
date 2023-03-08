@@ -4,7 +4,6 @@ import PropTypes from 'prop-types';
 
 import useBindContainer from '../../hooks/useBindContainer';
 import Theme from '../../theme/theme';
-import controller from '../../utils/controller';
 import makePositionContainers from '../../utils/makePositionContainers';
 import ErrorBoundary from '../ErrorBoundary';
 import Toast from '../Toast';
@@ -18,10 +17,8 @@ const PositionContainer = ({ position, children }) => (
 );
 
 const ContainerToast = () => {
-    useBindContainer();
-    const toastPositionContainers = makePositionContainers([
-        ...controller.toasts,
-    ]);
+    const { toasts } = useBindContainer();
+    const toastPositionContainers = makePositionContainers([...toasts]);
 
     return ReactDOM.createPortal(
         <ErrorBoundary>

@@ -14,7 +14,11 @@ const useBindContainer = () => {
 
     useEffect(() => {
         toastInstance.toastContainer = ref.current;
-    }, [toasts]);
+    }, []);
+
+    return {
+        toasts,
+    };
 };
 
 export default useBindContainer;
