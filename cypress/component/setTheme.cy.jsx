@@ -3,9 +3,9 @@ import { mount } from '@cypress/react';
 import { composeStories } from '@storybook/testing-react';
 import chaiColors from 'chai-colors';
 
-import * as stories from '../../src/stories/ToastSettings.stories';
-import Theme from '../../src/theme/theme';
-import toast from '../../src/utils/controller';
+import * as stories from '@/stories/ToastSettings.stories';
+import Theme from '@/theme/theme';
+import toastServices from '@/utils/ServiсeSingleton';
 
 chai.use(chaiColors);
 
@@ -13,7 +13,7 @@ const { TOAST } = composeStories(stories);
 
 describe('SET_THEME', () => {
     it('should have background from user settings', () => {
-        toast.setSettingsToType(toast.TYPE.DEFAULT, {
+        toastServices.setSettingsToType('default', {
             backgroundColor: 'green',
         });
         mount(<TOAST />);
@@ -24,7 +24,7 @@ describe('SET_THEME', () => {
     });
 
     it('should reset settings', () => {
-        toast.resetSettings();
+        toastServices.resetSettings();
         mount(<TOAST />);
         cy.get('#button').click();
         cy.get(`[data-test=toast]`)

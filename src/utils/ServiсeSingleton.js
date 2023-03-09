@@ -1,32 +1,23 @@
 import uuid from 'uuid4';
 
-import { ANIMATION, POSITION, TYPE } from '../constants';
 import defaultParameters from '../constants/defaultParameters';
 import Theme from '../theme/theme';
 
 import normalizeParams from './normalizeParams';
-import validateParams from './validateFilter';
 
-class ToastSingleton {
+class ServiсeSingleton {
     static getInstance() {
-        if (!ToastSingleton.instance)
-            ToastSingleton.instance = new ToastSingleton();
-        return ToastSingleton.instance;
+        if (!ServiсeSingleton.instance)
+            ServiсeSingleton.instance = new ServiсeSingleton();
+        return ServiсeSingleton.instance;
     }
 
     toasts = [];
 
-    TYPE = TYPE;
-
-    POSITION = POSITION;
-
-    ANIMATION = ANIMATION;
-
     addToast(customParams = defaultParameters) {
-        const validParams = validateParams(customParams);
         const toastParameters = normalizeParams({
             ...defaultParameters,
-            ...validParams,
+            ...customParams,
         });
         if (this.toasts.length < 3) {
             this.toasts.push({ ...toastParameters, id: uuid() });
@@ -44,8 +35,7 @@ class ToastSingleton {
     }
 
     setSettingsToType = (type, customParams) => {
-        const params = validateParams(customParams);
-        Theme[type] = { ...Theme[type], ...params };
+        Theme[type] = { ...Theme[type], ...customParams };
         return { ...Theme[type] };
     };
 
@@ -54,6 +44,6 @@ class ToastSingleton {
     };
 }
 
-const toastInstance = ToastSingleton.getInstance();
+const toastService = ServiсeSingleton.getInstance();
 
-export default toastInstance;
+export default toastService;

@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-import useToast from '../../hooks/useToast';
+import useToast from '@/hooks/useToast';
 
 import { CloseButton, Description, Title, Wrapper } from './styled';
 
@@ -19,12 +19,13 @@ const Toast = ({
     position,
     animationDuration,
 }) => {
-    const { isClosing, isForceClosing, forceCloseToast } = useToast({
-        duration,
-        id,
-        animationDuration,
-    });
-
+    const { isClosing, isForceClosing, closeToast, setIsForceClosing } =
+        useToast({
+            duration,
+            id,
+            animationDuration,
+        });
+    const forceCloseToast = () => closeToast(setIsForceClosing);
     return (
         <Wrapper
             data-test="toast"

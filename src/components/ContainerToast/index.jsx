@@ -3,10 +3,11 @@ import ReactDOM from 'react-dom';
 import PropTypes from 'prop-types';
 import { ThemeProvider } from 'styled-components';
 
-import useBindContainer from '../../hooks/useBindContainer';
-import GlobalStyle from '../../theme/globalStyle';
-import Theme from '../../theme/theme';
-import makePositionContainers from '../../utils/makePositionContainers';
+import useBindContainer from '@/hooks/useBindContainer';
+import GlobalStyle from '@/theme/globalStyle';
+import Theme from '@/theme/theme';
+import makePositionContainers from '@/utils/makePositionContainers';
+
 import ErrorBoundary from '../ErrorBoundary';
 import Toast from '../Toast';
 

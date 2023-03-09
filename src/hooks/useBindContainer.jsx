@@ -1,6 +1,6 @@
 import { useEffect, useImperativeHandle, useRef, useState } from 'react';
 
-import toastInstance from '../utils/controller';
+import toastServices from '../utils/ServiсeSingleton';
 
 const useBindContainer = () => {
     const [toasts, setToasts] = useState([]);
@@ -13,7 +13,7 @@ const useBindContainer = () => {
     }));
 
     useEffect(() => {
-        toastInstance.toastContainer = ref.current;
+        toastServices.toastContainer = ref.current;
     }, []);
 
     return {

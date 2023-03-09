@@ -3,9 +3,8 @@ import { mount } from '@cypress/react';
 import { composeStories } from '@storybook/testing-react';
 import chaiColors from 'chai-colors';
 
-import * as stories from '../../src/stories/ToastSettings.stories';
-import Theme from '../../src/theme/theme';
-import toast from '../../src/utils/controller';
+import * as stories from '@/stories/ToastSettings.stories';
+import Theme from '@/theme/theme';
 
 chai.use(chaiColors);
 
@@ -13,7 +12,7 @@ const { TOAST } = composeStories(stories);
 
 describe('TOAST_DEFAULT', () => {
     it('should render default type toast', () => {
-        mount(<TOAST type={toast.TYPE.DEFAULT} />);
+        mount(<TOAST type="default" />);
         cy.get('#button').click();
         cy.get(`[data-test=toast]`)
             .first()
@@ -24,7 +23,7 @@ describe('TOAST_DEFAULT', () => {
 
 describe('TOAST_ERROR', () => {
     it('should render error type toast', () => {
-        mount(<TOAST type={toast.TYPE.ERROR} />);
+        mount(<TOAST type="error" />);
         cy.get('#button').click();
         cy.get(`[data-test=toast]`)
             .should('have.css', 'background-color')
@@ -34,7 +33,7 @@ describe('TOAST_ERROR', () => {
 
 describe('TOAST_WARNING', () => {
     it('should render warning type toast', () => {
-        mount(<TOAST type={toast.TYPE.WARNING} />);
+        mount(<TOAST type="warning" />);
         cy.get('#button').click();
         cy.get(`[data-test=toast]`)
             .should('have.css', 'background-color')
@@ -44,7 +43,7 @@ describe('TOAST_WARNING', () => {
 
 describe('TOAST_INFO', () => {
     it('should render info type toast', () => {
-        mount(<TOAST type={toast.TYPE.INFO} />);
+        mount(<TOAST type="info" />);
         cy.get('#button').click();
         cy.get(`[data-test=toast]`)
             .should('have.css', 'background-color')
@@ -54,7 +53,7 @@ describe('TOAST_INFO', () => {
 
 describe('TOAST_SUCCESS', () => {
     it('should render success type toast', () => {
-        mount(<TOAST type={toast.TYPE.SUCCESS} />);
+        mount(<TOAST type="success" />);
         cy.get('#button').click();
         cy.get(`[data-test=toast]`)
             .should('have.css', 'background-color')

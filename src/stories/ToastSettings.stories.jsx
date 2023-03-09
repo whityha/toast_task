@@ -1,7 +1,8 @@
 import React from 'react';
 
-import ContainerToast from '../components/Container';
-import toast from '../utils/controller';
+import ContainerToast from '../components/ContainerToast';
+import defaultParameters from '../constants/defaultParameters';
+import toastServices from '../utils/ServiсeSingleton';
 
 export default {
     title: 'Settings/Toast',
@@ -48,7 +49,7 @@ const Template = ({
     position,
 }) => {
     const showToast = () => {
-        toast.addToast({
+        toastServices.addToast({
             position,
             title,
             description,
@@ -77,5 +78,6 @@ const Template = ({
 export const TOAST = Template.bind({});
 
 TOAST.args = {
+    ...defaultParameters,
     type: 'default',
 };
