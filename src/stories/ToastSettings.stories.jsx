@@ -1,6 +1,6 @@
 import React from 'react';
 
-import ContainerToast from '../components/Container';
+import ContainerToast from '../components/ContainerToast';
 import toast from '../utils/controller';
 
 export default {

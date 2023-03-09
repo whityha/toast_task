@@ -1,4 +1,4 @@
-import ToastContainer from '@/components/Container';
+import ContainerToast from '@/components/ContainerToast';
 import toast from '@/utils/controller';
 
-export { toast, ToastContainer };
+export { ContainerToast, toast };
