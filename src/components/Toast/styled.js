@@ -1,6 +1,6 @@
 import styled, { css } from 'styled-components';
 
-import getAnimation from '../../utils/getAnimation';
+import getAnimation from '@/utils/getAnimation';
 
 export const Wrapper = styled.div`
     position: relative;
