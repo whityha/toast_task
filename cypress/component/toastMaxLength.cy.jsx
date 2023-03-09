@@ -3,7 +3,7 @@ import { mount } from '@cypress/react';
 import { composeStories } from '@storybook/testing-react';
 import chaiColors from 'chai-colors';
 
-import * as stories from '../../src/stories/ToastSettings.stories';
+import * as stories from '@/stories/ToastSettings.stories';
 
 chai.use(chaiColors);
 
