@@ -7,15 +7,8 @@ const useToast = ({ duration, animationDuration, id }) => {
     const [isClosing, setIsClosing] = useState(false);
     const [isForceClosing, setIsForceClosing] = useState(false);
 
-    const closeToast = () => {
-        setIsClosing(true);
-        setTimeout(() => {
-            toastService.deleteToast(id);
-        }, animationDuration);
-    };
-
-    const forceCloseToast = () => {
-        setIsForceClosing(true);
+    const closeToast = (setClosingState) => {
+        setClosingState(true);
         setTimeout(() => {
             toastService.deleteToast(id);
         }, animationDuration);
@@ -23,7 +16,7 @@ const useToast = ({ duration, animationDuration, id }) => {
 
     useEffect(() => {
         const timer = setTimeout(() => {
-            closeToast(id);
+            closeToast(setIsClosing);
         }, duration + Theme.animationDuration);
         return () => {
             toastService.deleteToast(id);
@@ -34,7 +27,8 @@ const useToast = ({ duration, animationDuration, id }) => {
     return {
         isClosing,
         isForceClosing,
-        forceCloseToast,
+        closeToast,
+        setIsForceClosing,
     };
 };
 

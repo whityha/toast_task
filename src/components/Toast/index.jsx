@@ -19,12 +19,13 @@ const Toast = ({
     position,
     animationDuration,
 }) => {
-    const { isClosing, isForceClosing, forceCloseToast } = useToast({
-        duration,
-        id,
-        animationDuration,
-    });
-
+    const { isClosing, isForceClosing, closeToast, setIsForceClosing } =
+        useToast({
+            duration,
+            id,
+            animationDuration,
+        });
+    const forceCloseToast = () => closeToast(setIsForceClosing);
     return (
         <Wrapper
             data-test="toast"
