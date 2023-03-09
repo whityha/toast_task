@@ -124,7 +124,12 @@ const Theme = {
         p5: 50,
         p6: 60,
     },
-
+    closePosition: {
+        right: 10,
+        top: 10,
+        left: 0,
+        bottom: 0,
+    },
     resetSettings(type = false) {
         switch (type) {
             case TYPE.ERROR:

@@ -68,8 +68,8 @@ export const Description = styled.p`
 
 export const CloseButton = styled.button`
     position: absolute;
-    top: 10px;
-    right: 10px;
+    top: ${({ theme: { closePosition } }) => closePosition.top}px;
+    right: ${({ theme: { closePosition } }) => closePosition.right}px;
     background: transparent;
     border: none;
     width: ${({ theme: { closeButtonSize } }) => closeButtonSize.medium}px;
