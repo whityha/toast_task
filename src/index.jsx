@@ -1,4 +1,4 @@
 import ContainerToast from '@/components/ContainerToast';
-import toast from '@/utils/controller';
+import toastServices from '@/utils/ServiсeSingleton';
 
-export { ContainerToast, toast };
+export { ContainerToast, toastServices };

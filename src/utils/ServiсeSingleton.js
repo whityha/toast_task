@@ -1,25 +1,18 @@
 import uuid from 'uuid4';
 
-import { ANIMATION, POSITION, TYPE } from '../constants';
 import defaultParameters from '../constants/defaultParameters';
 import Theme from '../theme/theme';
 
 import normalizeParams from './normalizeParams';
 
-class ToastSingleton {
+class ServiсeSingleton {
     static getInstance() {
-        if (!ToastSingleton.instance)
-            ToastSingleton.instance = new ToastSingleton();
-        return ToastSingleton.instance;
+        if (!ServiсeSingleton.instance)
+            ServiсeSingleton.instance = new ServiсeSingleton();
+        return ServiсeSingleton.instance;
     }
 
     toasts = [];
-
-    TYPE = TYPE;
-
-    POSITION = POSITION;
-
-    ANIMATION = ANIMATION;
 
     addToast(customParams = defaultParameters) {
         const toastParameters = normalizeParams({
@@ -51,6 +44,6 @@ class ToastSingleton {
     };
 }
 
-const toastInstance = ToastSingleton.getInstance();
+const toastService = ServiсeSingleton.getInstance();
 
-export default toastInstance;
+export default toastService;
