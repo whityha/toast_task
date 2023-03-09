@@ -1,6 +1,7 @@
 import React from 'react';
 
 import ContainerToast from '../components/ContainerToast';
+import defaultParameters from '../constants/defaultParameters';
 import toast from '../utils/controller';
 
 export default {
@@ -77,5 +78,6 @@ const Template = ({
 export const TOAST = Template.bind({});
 
 TOAST.args = {
+    ...defaultParameters,
     type: 'default',
 };

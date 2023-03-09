@@ -5,7 +5,6 @@ import defaultParameters from '../constants/defaultParameters';
 import Theme from '../theme/theme';
 
 import normalizeParams from './normalizeParams';
-import validateParams from './validateFilter';
 
 class ToastSingleton {
     static getInstance() {
@@ -23,10 +22,9 @@ class ToastSingleton {
     ANIMATION = ANIMATION;
 
     addToast(customParams = defaultParameters) {
-        const validParams = validateParams(customParams);
         const toastParameters = normalizeParams({
             ...defaultParameters,
-            ...validParams,
+            ...customParams,
         });
         if (this.toasts.length < 3) {
             this.toasts.push({ ...toastParameters, id: uuid() });
@@ -44,8 +42,7 @@ class ToastSingleton {
     }
 
     setSettingsToType = (type, customParams) => {
-        const params = validateParams(customParams);
-        Theme[type] = { ...Theme[type], ...params };
+        Theme[type] = { ...Theme[type], ...customParams };
         return { ...Theme[type] };
     };
 

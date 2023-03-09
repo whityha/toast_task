@@ -5,7 +5,7 @@ export default {
     title: 'Default title',
     description: 'Default description',
     position: POSITION.BOTTOM_RIGHT,
-    duration: 1000,
+    duration: 2000,
     animationDuration: 500,
     animation: ANIMATION.BUBBLE,
 };
