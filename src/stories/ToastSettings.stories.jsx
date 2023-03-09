@@ -2,7 +2,7 @@ import React from 'react';
 
 import ContainerToast from '../components/ContainerToast';
 import defaultParameters from '../constants/defaultParameters';
-import toast from '../utils/controller';
+import toastServices from '../utils/ServiсeSingleton';
 
 export default {
     title: 'Settings/Toast',
@@ -49,7 +49,7 @@ const Template = ({
     position,
 }) => {
     const showToast = () => {
-        toast.addToast({
+        toastServices.addToast({
             position,
             title,
             description,

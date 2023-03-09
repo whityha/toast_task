@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react';
 
 import Theme from '../theme/theme';
-import toastService from '../utils/controller';
+import toastServices from '../utils/ServiсeSingleton';
 
 const useToast = ({ duration, animationDuration, id }) => {
     const [isClosing, setIsClosing] = useState(false);
@@ -10,7 +10,7 @@ const useToast = ({ duration, animationDuration, id }) => {
     const closeToast = (setClosingState) => {
         setClosingState(true);
         setTimeout(() => {
-            toastService.deleteToast(id);
+            toastServices.deleteToast(id);
         }, animationDuration);
     };
 
@@ -19,7 +19,7 @@ const useToast = ({ duration, animationDuration, id }) => {
             closeToast(setIsClosing);
         }, duration + Theme.animationDuration);
         return () => {
-            toastService.deleteToast(id);
+            toastServices.deleteToast(id);
             clearTimeout(timer);
         };
     }, [id]);
